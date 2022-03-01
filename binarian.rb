@@ -8,7 +8,7 @@
 
 # returns the length of the shortest array with the same binarian as array A
 
-def solution(a)
+def binarian(a)
   binarian = 0
   a.each do |num|
     binarian += (2**num)
@@ -46,5 +46,5 @@ arr_b = [3, 2, 0]
 # returned array = [3, 2, 0].lenght = 3
 
 # solution should return 3 for arr_a & arr_b
-p solution(arr_a)
-p solution(arr_b)
+p binarian(arr_a)
+p binarian(arr_b)

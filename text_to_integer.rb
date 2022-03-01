@@ -1,8 +1,8 @@
-# write a function solution that given an interget D ( 1-5) and a string S ( 1,2,3,4,5),
-# returns the result of multiplying D with S and expressed as an interger
+# write a function solution that given an integer, D ( 1-5) and a string, S ( 1,2,3,4,5),
+# returns the result of multiplying D with S and expressed as an integer
 # Code in Ruby 2.2
 
-def solution(d, s)
+def text_to_integer(d, s)
   # assuming S can be different cases
   # downcase s to non-caps
   string = s.downcase
@@ -25,4 +25,4 @@ end
 d = 4
 s = 'two'
 
-puts solution(d, s)
+puts text_to_integer(d, s)
