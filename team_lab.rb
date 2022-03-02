@@ -7,7 +7,7 @@ def quartic_sum
   end
   sum
 end
-# p quartic_sum
+puts "Sum of quartic numbers from 1 to 50 is #{quartic_sum}"
 
 # Find the sum of all positive divisors of 1234567890 smaller than 2000000
 def divisors_sum(num_to_div)
@@ -19,7 +19,7 @@ def divisors_sum(num_to_div)
 end
 
 num = 1_234_567_890
-# p divisors_sum(num)
+puts "Sum of all positive divisors of 1234567890 smaller than 2000000 is #{divisors_sum(num)}"
 
 # Let's define the "multiplicative inverse sum up to N" as the sum of all multiplicative inverses of the integers from 1 to N.
 
@@ -37,10 +37,13 @@ def multiplicative_inverse_sum(range)
   return range if sum >= 9
 end
 
-# (4500..4600).each do |num|
-#   multiplicative_inverse_sum(4550)
-#   # 4550 smallest N
-# end
+smallest_n = 0
+(4000..5000).each do |num|
+  smallest_n = num if multiplicative_inverse_sum(num)
+  break if multiplicative_inverse_sum(num)
+end
+
+puts "Smallest N which the 'multiplicative inverse sum up to #{smallest_n}' is greater than 9"
 
 # Let's define an "A type" number as an integer that follows one or more of the conditions listed below.
 
@@ -58,7 +61,7 @@ def nabeazz
   sum
 end
 
-# p nabeazz
+puts "Sum of all 'A type' numbers is #{nabeazz}"
 
 # Suppose we have 600 boxes, each one weighting 1kg, 2kg, 3kg, ..., 600kg. We are trying to transport all those boxes using trucks that have a max capacity of 5000kg each.
 
@@ -89,7 +92,7 @@ def too_many_boxes(boxes_hash)
     trucks[truck_index] = 0
   end
   trucks.delete(0)
-  p trucks
+  # p trucks
   trucks.length
 end
 
@@ -98,4 +101,4 @@ boxes_hash = {}
 boxes.each do |box|
   boxes_hash[box] = 1
 end
-# p too_many_boxes(boxes_hash)
+puts "#{too_many_boxes(boxes_hash)} Trucks will be used to transport all the boxes using the strategy above"
