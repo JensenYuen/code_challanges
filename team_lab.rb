@@ -72,15 +72,10 @@ end
 # Truck 2: Boxes with 592kg，591kg，590kg，589kg，588kg，587kg，586kg，585kg
 # Find how many trucks will be used to transport all the boxes using the strategy above.
 
-def too_many_boxes
-  boxes = (1..600).to_a.reverse
+def too_many_boxes(boxes_hash)
   trucks = [0]
   truck_index = 0
 
-  boxes_hash = {}
-  boxes.each do |box|
-    boxes_hash[box] = 1
-  end
   while boxes_hash.value?(1)
     boxes_hash.each do |key, value|
       next if value.zero?
@@ -98,4 +93,9 @@ def too_many_boxes
   trucks.length
 end
 
-# p too_many_boxes
+boxes = (1..600).to_a.reverse
+boxes_hash = {}
+boxes.each do |box|
+  boxes_hash[box] = 1
+end
+# p too_many_boxes(boxes_hash)
