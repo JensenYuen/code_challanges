@@ -48,11 +48,22 @@
 
 # How many measurements are larger than the previous measurement?
 
-require_relative './sonar_sweep_input'
+require 'pry-byebug'
 
-def sonar_sweep
-  input = SonarSweepInput.new.input.split(' ')
-  input
+def sonar_sweep(depths)
+  larger_measurement = 0
+
+  depths.each_with_index do |_depth, index|
+    next if index == depths.length - 1
+
+    larger_measurement += 1 if depths[index] < depths[index + 1]
+  end
+  larger_measurement
 end
 
-p sonar_sweep
+# test_input should return 7
+test_input = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
+input = File.open('./sonar_sweep_input.txt').read.split(' ')
+
+p sonar_sweep(test_input)
+p sonar_sweep(input)
