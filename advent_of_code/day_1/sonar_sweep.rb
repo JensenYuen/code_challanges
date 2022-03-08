@@ -55,17 +55,18 @@ require 'pry-byebug'
 def sonar_sweep(depths)
   larger_measurement = 0
 
-  depths.each_with_index do |_depth, index|
-    next if index == depths.length - 1
+  depths.each_with_index do |depth, index|
+    break if depths[index + 1].nil?
 
-    larger_measurement += 1 if depths[index] < depths[index + 1]
+    larger_measurement += 1 if depth < depths[index + 1]
   end
   larger_measurement
 end
 
 test_input = [199, 200, 208, 210, 200, 207, 240, 269, 260, 263]
-input = File.open('./sonar_sweep_input.txt').read.split(' ')
+input = File.open('./sonar_sweep_input.txt').read.split(/\n/)
+input_num = input.map(&:to_i)
 
 # test_input should return 7 (true)
 p sonar_sweep(test_input) == 7
-p sonar_sweep(input)
+p sonar_sweep(input_num)
