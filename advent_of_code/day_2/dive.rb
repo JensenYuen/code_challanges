@@ -61,5 +61,5 @@ def dive_part_two(inputs)
 end
 
 # Test input should return trun (900)
-p dive_part_two(test_inputs) == 900
+# p dive_part_two(test_inputs) == 900
 p dive_part_two(inputs)
