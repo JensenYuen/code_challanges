@@ -11,9 +11,10 @@ def dive(inputs)
     direction_arr = input.split(' ')
     key = direction_arr[0].to_s.to_sym
     value = direction_arr[1].to_i
-    if key == :up
+    case key
+    when :up
       directions[:horizontal] += value
-    elsif key == :down
+    when :down
       directions[:horizontal] -= value
     else
       directions[:verital] += value
